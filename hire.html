@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100&family=Ubuntu&display=swap');
+        body{
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            /* background-image: url(pexels-steve-johnson-1269968.jpg); */
+            /* background-color: pink; */
+            background: linear-gradient(to right,#00ffbd,#bc00ffcc);
+            /* background-repeat: no-repeat; */
+            /* background-size:cover ; */
+            
+        }
+        div{
+            display: flex;
+            justify-content: center;
+                      align-items: center;
+             padding: 2em;
+             background-color: white;
+             position: relative;
+             top: 3em;
+             left: auto;
+             border-radius: .6em;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            /* padding: 19em;
+            margin: auto; */
+          
+        }
+        form>input{
+            margin: 0.4em;
+                   width: 33em;
+                   background-color: #f0f0f080;
+                   height: 4em;
+                   border: none;
+                   border-radius: 0.5em;       
+                   overflow: hidden;
+                         
+        }
+        form>button{
+            height: 6em;
+              width: 15em;
+              margin: 1em;
+              position: relative;
+              left: 15em;
+              BORDER: NONE;
+              padding: 0em;
+              /* background-color: #ffcb88; */
+              border-radius: 1.2em;
+              color: white;    
+              background: linear-gradient(to right,#00ffbd,#bc00ffcc); 
+              cursor: pointer;     
+              transition: 50ms ease-in;
+        }
+        textarea{
+            background-color: #f0f0f080;
+            border: none;
+            text-align: center;
+            /* font-size: 1.3em; */
+            color: black;
+            size: 1.2em;
+            height: 5em;
+            width: 25em;
+            
+        }
+        textarea::placeholder{
+            size: 1em;
+            color: GREY;
+            font-family: 'Ubuntu', sans-serif;
+            
+        }
+        textarea:focus,input:focus{
+            outline: none;
+            
+        }
+        input:focus::placeholder{
+            color: transparent;
+        }
+        textarea:focus::placeholder{
+            color: transparent;
+        }
+        INPUT::placeholder{
+            font-family:'Ubuntu', sans-serif ;
+           size: 1em;
+        }
+        button:active{
+            transform: translate(.5em ,.5em);
+        }
+        input[type='text']{
+            font-size: 1.2em;
+        }
+        input[type='email']{
+            font-size: 1.2em;
+        }
+        #feed{
+            font-size: 2em;
+        }
+
+    </style>
+</head>
+<body><div>
+    
+    <form action="" onsubmit="sendemail(); reset(); return false;">
+        <p style="font-size: 1.5em;font-family: 'Ubuntu', sans-serif; color: grey;">GET IN TOUCH</p>
+     <input type="text" name="name" id="name1" placeholder="Name">
+     <input type="email" name="email" id="email1" placeholder="Email">
+     <input type="text" name="phone" id="number" placeholder="Phone No.">
+     <input type="text" name="company" id="company" placeholder="Company">
+     <input type="text" id="role" placeholder="job role">
+     <textarea name="" id="feed" cols="30" rows="3" placeholder="what are u looking for?"></textarea>
+     <button><p style="font-size: 1.8em;font-family: 'Ubuntu', sans-serif;">SEND</p></button>
+    </form></div>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script> 
+    
+    function sendemail(){
+        var name=document.getElementById("name1").value;
+        var email=document.getElementById("email1").value;
+        var phone=document.getElementById("number").value;
+        var company=document.getElementById("company").value;
+        var role=document.getElementById("role").value;
+        var feed=document.getElementById("feed").value;
+
+        var body="name: "+ name +"<br/> email: "+ email + "<br/> phone:" + phone + "<br/> company:" +company + "<br/> role:"+ role + "<br/>message:" +feed;
+        Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "pinu632@gmail.com",
+    Password : "14BE6A441F90F9D59271AFA467FB681179EB",
+    To : 'pinuadarsh569@gmail.com',
+    From :"pinu632@gmail.com",
+    Subject : "new contact",
+    Body :body,
+}).then(
+  message => alert(message)
+);
+    }
+    </script>
+</body>
+</html>
